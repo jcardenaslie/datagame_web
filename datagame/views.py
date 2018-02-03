@@ -13,10 +13,5 @@ def index(request):
         # context={'num_books':num_books,'num_instances':num_instances,'num_instances_available':num_instances_available,'num_authors':num_authors},
     )
 
-def home(request):
+def search(request):
 	return HttpResponse("Hello you are at the main page")
-
-
-# class HomeView(View):
-# 	def get(self, request, *args, **kwargs):
-# 		return render(request, "datagame/index.html", {})

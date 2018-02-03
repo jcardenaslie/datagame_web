@@ -9,4 +9,6 @@ app_name = 'datagame'
 urlpatterns = [
     # ex: /polls/
     path('', views.index, name='index'),
+
+    path('search', views.search, name='index'),
 ]
