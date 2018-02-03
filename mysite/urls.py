@@ -18,6 +18,6 @@ from django.urls import include
 from django.conf.urls import include
 
 urlpatterns = [
-	path('datagame/', include('datagame.urls')),
+	path('', include('datagame.urls')),
     path('admin/', admin.site.urls),
 ]
