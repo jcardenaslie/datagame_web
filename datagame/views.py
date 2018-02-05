@@ -7,6 +7,7 @@ from django.views import generic
 from django.contrib.auth import authenticate, login,get_user_model, logout
 from django.views.generic import View
 from .forms import UserForm, UserLoginForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -29,6 +30,8 @@ def index(request):
 	# return render(request,"datagame/form.html", {'form':form, 'title':title})
 	return render(request,"home/index.html", {'form':form})
 
+
+@login_required(login_url='../login/')
 def search(request):
 	return HttpResponse("Hello you are at the main page")
 
@@ -67,24 +70,24 @@ class UserFormView(View):
 		return render(request, self.template_name, {'form':form})
 
 
-# def login_view(request):
-# 	print(request.user.is_authenticated)
+def login_view(request):
+	print(request.user.is_authenticated)
 
-# 	title = "Login"
-# 	form = UserLoginForm(request.POST or None)
+	title = "Login"
+	form = UserLoginForm(request.POST or None)
 
-# 	if form.is_valid():
-# 		username = form.cleaned_data.get('username')
-# 		password = form.cleaned_data.get('password')
-# 		user = authenticate(username=username, password=password)
-# 		login(request,user)
-# 		print(request.user.is_authenticated)
-# 		return redirect('../search')
+	if form.is_valid():
+		username = form.cleaned_data.get('username')
+		password = form.cleaned_data.get('password')
+		user = authenticate(username=username, password=password)
+		login(request,user)
+		print(request.user.is_authenticated)
+		return redirect('../search')
 
-# 		# return redirect('datagame:search')
+		# return redirect('datagame:search')
 
-# 	# return render(request,"datagame/form.html", {'form':form, 'title':title})
-# 	return render(request,"home/index.html", {'form':form})
+	# return render(request,"datagame/form.html", {'form':form, 'title':title})
+	return render(request,"datagame/form.html", {'form':form, 'title':title})
 
 
 def register_view(request):
