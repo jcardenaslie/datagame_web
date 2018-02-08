@@ -24,10 +24,7 @@ def index(request):
 		login(request,user)
 		print(request.user.is_authenticated)
 		return redirect('../search')
-
-		# return redirect('datagame:search')
-
-	# return render(request,"datagame/form.html", {'form':form, 'title':title})
+	
 	return render(request,"home/index.html", {'form':form})
 
 
