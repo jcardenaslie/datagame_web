@@ -25,7 +25,7 @@ SECRET_KEY = 'r3wf5+m=zib9e%mky%h!a$b0w1o847@*l&twn21v+&#7#uu5fr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','jqun.pythonanywhere.com']
 
 
 # Application definition
