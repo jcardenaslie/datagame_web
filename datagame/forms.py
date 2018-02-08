@@ -15,6 +15,9 @@ class UserForm(forms.ModelForm):
 	class Meta:
 		model = User
 		fields = ['username','email','password']
+		widgets = {
+			'myfield':forms.TextInput(attrs={'class':''})
+		}
 
 
 class UserLoginForm(forms.Form):
@@ -35,3 +38,4 @@ class UserLoginForm(forms.Form):
 				raise forms.ValidationError("This user is not longer active")
 		
 		return super(UserLoginForm,self).clean(*args, **kwargs)
+

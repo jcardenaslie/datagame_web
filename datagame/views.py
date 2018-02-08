@@ -30,7 +30,7 @@ def index(request):
 
 @login_required(login_url='../login/')
 def search(request):
-	return HttpResponse("Hello you are at the main page")
+	return render(request,"datagame/search.html")
 
 
 class UserFormView(View):
@@ -88,7 +88,7 @@ def login_view(request):
 
 
 def register_view(request):
-	return render(request,'form,html', {})
+	return render(request,'form.html', {})
 
 
 def logout_view(request):
